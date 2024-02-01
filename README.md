@@ -1,4 +1,17 @@
-# React + TypeScript + Vite
+## OSCentium - Inventory Management System
+
+OSCentium is a web-based inventory management system that allows users to manage their inventory, sales, and purchases. It is built using React, TypeScript, and Vite.
+
+### TODO
+- [ ] Add a method that watches for changes for quantity and price and updates the total price
+- [ ] Add a page for adding new categories
+- [ ] Add a page for adding new products
+- [ ] inventory table should be able to update the quantity of a product
+- [ ] inventory table should be searchable and filterable
+- [ ] inventory table should be paginated
+
+
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
