@@ -1,5 +1,5 @@
 import LoginService from '../../application/login/LoginService.ts'
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@tanstack/react-router";
 import {useState} from "react";
 
 export default function LoginPage(){

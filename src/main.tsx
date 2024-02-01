@@ -6,8 +6,12 @@ import { ThemeProvider } from "@material-tailwind/react";
 
 import LoginPage from "./components/login/login"
 import HomePage from "./components/home/home"
-import {createHashRouter, RouterProvider,redirect } from "react-router-dom";
+//@ts-ignore
+import InventoryPage from "./components/inventory/inventory"
+import {Router, RouterProvider,redirect } from "@tanstack/react-router";
 import {AuthService} from "./application/auth/AuthService.ts";
+import NavBar from "./components/navbar.jsx";
+import {rootRoute, homeRoute, inventoryRoute, loginRoute, itemManagementRoute, salesRoute} from "./router.tsx";
 
 const checkAuthState = (route) => {
     const isAuthenticated = AuthService.checkAuth();
@@ -24,29 +28,26 @@ const checkLoginState = (route) => {
     }
     return null;
 }
+const routeTree = rootRoute.addChildren([
+    loginRoute,
+    homeRoute,
+    inventoryRoute,
+    itemManagementRoute,
+    salesRoute,
+])
 
-const router = createHashRouter([
-    {
-        path: "/login",
-        element: <LoginPage />,
-        loader: () => checkLoginState("/home"),
+const router = new Router({
+    routeTree,
+    defaultPreload: "intent",
+})
 
-    },
-    {
-        path: "/home",
-        element: <App />,
-        loader: () => checkAuthState("/login"),
-    },
-    {
-        path: "*",
-        element: <div>Not Found</div>,
+declare module '@tanstack/react-router' {
+    interface Register {
+        router: typeof router
     }
-]);
+}
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-      <ThemeProvider>
-
       <RouterProvider router={router} />
-        </ThemeProvider>
-      </React.StrictMode>,
+  </React.StrictMode>,
 )
