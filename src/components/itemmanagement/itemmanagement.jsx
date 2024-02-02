@@ -11,10 +11,12 @@ import {
     TabsItem, TabPanel,
 } from "@material-tailwind/react";
 import AddItemCard from "./additem";
+import AddCategoryCard from "./addcategory.jsx";
 
 const headers = [
     "Add Item",
-    "Edit Item",]
+    "Edit Item",
+    "Categories",]
 
 
 
@@ -35,6 +37,9 @@ export default function ItemManagementPage() {
                         </TabPanel>
                         <TabPanel value='Edit Item'>
                             <h1>Edit Item</h1>
+                        </TabPanel>
+                        <TabPanel value='Categories'>
+                            <AddCategoryCard/>
                         </TabPanel>
                     </TabsBody>
                 </Tabs>

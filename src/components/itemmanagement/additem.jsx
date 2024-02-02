@@ -1,9 +1,10 @@
-import {Button, Card, Input, Typography} from "@material-tailwind/react";
+import {Button, Card, CardBody, Input, Typography} from "@material-tailwind/react";
 
 export default function AddItemCard(){
     return(
         <section >
             <Card className='w-full px-3 py-3'>
+                <CardBody>
                 <form className='flex flex-col '>
                     <Typography variant="h6" color="blue-gray" className='-mb-4 mt-2'>Item Name</Typography>
                     <Input variant="static" className='flex-1 ' size="lg" type="text" color="lightBlue"/>
@@ -27,6 +28,7 @@ export default function AddItemCard(){
                     <Input variant="static" size="lg" type="file" color="lightBlue"/>
                     <Button className={'mt-3 ml-auto'} color="lightBlue" ripple="light">Submit</Button>
                 </form>
+                </CardBody>
             </Card>
         </section>
     )
